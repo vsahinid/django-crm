@@ -1,5 +1,5 @@
-{% extends 'accounts/main.html' %} {% block content %} {% comment %} {% include
-'accounts/status.html' %} {% endcomment %}
+{% extends 'accounts/main.html' %} {% block content %} 
+{% include 'accounts/status.html' %}
 
 <br />
 
@@ -15,6 +15,11 @@
           <th>Customer</th>
           <th>Orders</th>
         </tr>
+        {% for customer in customers %}
+        <tr>
+          <td>{{customer.name}}</td>
+        </tr>
+        {% endfor %}
       </table>
     </div>
   </div>
@@ -32,6 +37,15 @@
           <th>Update</th>
           <th>Remove</th>
         </tr>
+        {% for order in orders %}
+        <tr>
+          <td>{{order.product}}</td>
+          <td>{{order.date_created}}</td>
+          <td>{{order.status}}</td>
+          <td><a href="">Update</td>
+          <td><a href="">Delete</td>
+        </tr>
+        {% endfor %}
       </table>
     </div>
   </div>
